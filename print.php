@@ -1,5 +1,5 @@
 <?php
-include 'model.php';
+include "model.php";
 $model = new Model();
 $index = 1;
 ?>
@@ -44,10 +44,9 @@ $index = 1;
         </thead>
         <tbody>
             <?php
-                $result = $model->tampil_data();
-                if (!empty($result)) {
-                    foreach ($result as $data) :
-            ?>
+            $result = $model->tampil_data();
+            if (!empty($result)) {
+                foreach ($result as $data): ?>
             <tr>
                 <td><?= $index++ ?></td>
                 <td><?= $data->nim ?></td>
@@ -58,12 +57,15 @@ $index = 1;
                 <td><?= $data->na ?></td>
                 <td><?= $data->status ?></td>
             </tr>
-            <?php endforeach ;
-                }else{ ?>
+            <?php endforeach;
+            } else {
+                 ?>
             <tr>
                 <td colspan="9">Belum ada data pada tabel nilai mahasiswa.</td>
             </tr>
-            <?php } ?>
+            <?php
+            }
+            ?>
         </tbody>
     </table>
     <script>
